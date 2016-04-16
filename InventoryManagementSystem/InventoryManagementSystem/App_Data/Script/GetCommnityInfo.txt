@@ -1,0 +1,5 @@
+SELECT [id]
+      ,[code]
+      ,[name]
+      ,[price]
+  FROM [inventoryDB].[dbo].[Commodity]
