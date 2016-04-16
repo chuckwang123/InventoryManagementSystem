@@ -1,0 +1,8 @@
+INSERT INTO [dbo].[Commodity]
+           ([code]
+           ,[name]
+           ,[price])
+     VALUES
+           (@code
+           ,@name
+           ,@price)

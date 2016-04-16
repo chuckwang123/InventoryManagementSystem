@@ -1,0 +1,5 @@
+UPDATE [dbo].[Commodity]
+   SET [code] = @code
+      ,[name] = @name
+      ,[price] = @price
+ WHERE id = @id

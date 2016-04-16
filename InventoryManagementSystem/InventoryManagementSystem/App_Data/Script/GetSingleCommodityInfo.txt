@@ -1,0 +1,6 @@
+SELECT [id]
+      ,[code]
+      ,[name]
+      ,[price]
+  FROM [inventoryDB].[dbo].[Commodity]
+  WHERE [id] = @id

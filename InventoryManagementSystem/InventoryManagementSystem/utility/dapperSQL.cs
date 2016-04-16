@@ -8,7 +8,7 @@ namespace InventoryManagementSystem.utility
     {
         public dapperSQL() { }
 
-        public IEnumerable<T> Query<T>(string connection, string sql, params object[] parameter)
+        public IEnumerable<T> Query<T>(string connection, string sql, object parameter = null)
         {
             IEnumerable<T> response;
             using (var sqlConnection =new SqlConnection(connection))
@@ -21,6 +21,18 @@ namespace InventoryManagementSystem.utility
             }
 
             return response;
+        }
+
+        public void Execute(string connection, string sql, object parameter = null)
+        {
+            using (var sqlConnection = new SqlConnection(connection))
+            {
+                sqlConnection.Open();
+
+                sqlConnection.Query(sql, parameter);
+
+                sqlConnection.Close();
+            }
         }
     }
 }
