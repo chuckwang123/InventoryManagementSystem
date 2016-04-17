@@ -1,0 +1,6 @@
+SELECT [id]
+      ,[Date]
+      ,[CommodityID]
+      ,[Number]
+      ,[TotalPrice]
+  FROM [inventoryDB].[dbo].[Stock]

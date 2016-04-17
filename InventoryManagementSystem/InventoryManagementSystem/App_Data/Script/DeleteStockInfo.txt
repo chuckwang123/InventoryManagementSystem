@@ -1,0 +1,2 @@
+DELETE FROM [dbo].[Stock]
+      WHERE [id] = @id

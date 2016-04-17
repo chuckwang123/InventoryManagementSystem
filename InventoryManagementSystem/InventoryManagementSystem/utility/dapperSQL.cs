@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
+using System.Web.Hosting;
 using Dapper;
 
 namespace InventoryManagementSystem.utility
 {
     public class dapperSQL
     {
-        public dapperSQL() { }
+        private Webconfig mWebconfig = new Webconfig();
 
         public IEnumerable<T> Query<T>(string connection, string sql, object parameter = null)
         {
@@ -33,6 +36,17 @@ namespace InventoryManagementSystem.utility
 
                 sqlConnection.Close();
             }
+        }
+
+        public string GetsqlQuery(string fileName)
+        {
+            var sqlquery = "";
+            using (StreamReader sr = new StreamReader(HostingEnvironment.MapPath(mWebconfig.SqlQueryPath + fileName)))
+            {
+                String line = sr.ReadToEnd();
+                sqlquery = line.Replace(Environment.NewLine, "");
+            }
+            return sqlquery;
         }
     }
 }

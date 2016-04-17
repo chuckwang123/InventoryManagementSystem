@@ -24,7 +24,7 @@ namespace InventoryManagementSystem.Controllers
         [Route("")]
         public IEnumerable<Commodity> Get()
         {
-            string sqlQuery = GetsqlQuery("GetCommodityInfo.txt");
+            string sqlQuery = mDapperSql.GetsqlQuery("GetCommodityInfo.txt");
             var response = mDapperSql.Query<Commodity>(mWebconfig.RDSSQLServerConnection, sqlQuery);
             return response;
         }
@@ -33,7 +33,7 @@ namespace InventoryManagementSystem.Controllers
         [Route("{id:int}")]
         public Commodity Get(int id)
         {
-            string sqlQuery = GetsqlQuery("GetSingleCommodityInfo.txt");
+            string sqlQuery = mDapperSql.GetsqlQuery("GetSingleCommodityInfo.txt");
             var response = mDapperSql.Query<Commodity>(mWebconfig.RDSSQLServerConnection, sqlQuery, new {id});
             return response.FirstOrDefault();
         }
@@ -42,7 +42,7 @@ namespace InventoryManagementSystem.Controllers
         [HttpPost, Route("")]
         public void Post(Commodity commodity)
         {
-            string sqlQuery = GetsqlQuery("InsertCommodityInfo.txt");
+            string sqlQuery = mDapperSql.GetsqlQuery("InsertCommodityInfo.txt");
             mDapperSql.Execute(mWebconfig.RDSSQLServerConnection, sqlQuery, new
             {
                 commodity.code,
@@ -55,7 +55,7 @@ namespace InventoryManagementSystem.Controllers
         [HttpPut, Route("{id:int}")]
         public void Put(int id, Commodity commodity)
         {
-            string sqlQuery = GetsqlQuery("UpdateComminityInfo.txt");
+            string sqlQuery = mDapperSql.GetsqlQuery("UpdateComminityInfo.txt");
             mDapperSql.Execute(mWebconfig.RDSSQLServerConnection, sqlQuery, new
             {
                 id,
@@ -69,19 +69,10 @@ namespace InventoryManagementSystem.Controllers
         [HttpDelete, Route("{id:int}")]
         public void Delete(int id)
         {
-            string sqlQuery = GetsqlQuery("DeleteCommodityInfo.txt");
+            string sqlQuery = mDapperSql.GetsqlQuery("DeleteCommodityInfo.txt");
             mDapperSql.Execute(mWebconfig.RDSSQLServerConnection, sqlQuery, new { id });
         }
 
-        public string GetsqlQuery(string fileName)
-        {
-            var sqlquery = "";
-            using (StreamReader sr = new StreamReader(HostingEnvironment.MapPath(mWebconfig.SqlQueryPath + fileName)))
-            {
-                String line = sr.ReadToEnd();
-                sqlquery = line.Replace(Environment.NewLine, "");
-            }
-            return sqlquery;
-        }
+        
     }
 }

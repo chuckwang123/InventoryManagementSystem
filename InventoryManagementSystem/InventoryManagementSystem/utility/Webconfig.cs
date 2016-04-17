@@ -4,8 +4,6 @@ namespace InventoryManagementSystem.utility
 {
     public class Webconfig
     {
-        public Webconfig() { }
-
         public string RDSSQLServerConnection
         {
             get{return ConfigurationManager.ConnectionStrings["RDSSQLServerConnection"].ConnectionString;}

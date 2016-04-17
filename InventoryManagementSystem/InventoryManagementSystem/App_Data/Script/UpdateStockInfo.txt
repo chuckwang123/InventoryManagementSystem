@@ -1,0 +1,6 @@
+UPDATE [dbo].[Stock]
+   SET [Date] = @Date
+      ,[CommodityID] = @CommodityID
+      ,[Number] = @Number
+      ,[TotalPrice] = @TotalPrice
+ WHERE [id] = @id

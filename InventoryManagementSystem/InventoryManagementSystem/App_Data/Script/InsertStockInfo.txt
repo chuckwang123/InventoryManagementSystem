@@ -1,0 +1,10 @@
+INSERT INTO [dbo].[Stock]
+           ([Date]
+           ,[CommodityID]
+           ,[Number]
+           ,[TotalPrice])
+     VALUES
+           (@Date
+           ,@CommodityID
+           ,@Number
+           ,@TotalPrice)

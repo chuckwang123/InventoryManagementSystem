@@ -1,21 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Web;
+using InventoryManagementSystem.Controllers;
 
 namespace InventoryManagementSystem.Models
 {
     public class Stock
     {
-        public Commodity Commodity { get; set; }
-        public int count { get; set; }
-        public DateTime Date { get; set; }
+        public int id { get; set; }
+        public string Date { get; set; }
+        public int commodityID { get; set; }
+        public int number { get; set; }
         public double TotalPrice { get; set; }
 
-        public Stock()
+        public void setupStock()
         {
-            TotalPrice = count*Commodity.price;
+            CommodityController mCommodityController = new CommodityController();
+            Commodity model = mCommodityController.Get(commodityID);
+
+            TotalPrice = model.price * number;
+            if (string.IsNullOrEmpty(Date))
+            {
+                Date = DateTime.Now.ToString();
+            }
         }
     }
 }
