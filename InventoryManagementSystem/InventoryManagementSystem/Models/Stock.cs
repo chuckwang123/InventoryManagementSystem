@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI.WebControls.WebParts;
 using InventoryManagementSystem.Controllers;
 
 namespace InventoryManagementSystem.Models
@@ -7,16 +8,22 @@ namespace InventoryManagementSystem.Models
     {
         public int id { get; set; }
         public string Date { get; set; }
-        public int commodityID { get; set; }
+        public Commodity commodity { get; set; }
         public int number { get; set; }
         public double TotalPrice { get; set; }
 
-        public void setupStock()
+        public Stock(StockDTO dto)
         {
-            CommodityController mCommodityController = new CommodityController();
-            Commodity model = mCommodityController.Get(commodityID);
+            id = dto.id;
+            Date = dto.Date;
+            number = dto.number;
+            TotalPrice = dto.TotalPrice;
+            commodity = new Commodity();
+        }
 
-            TotalPrice = model.price * number;
+        public void SetupStock()
+        {
+            TotalPrice = commodity.price * number;
             if (string.IsNullOrEmpty(Date))
             {
                 Date = DateTime.Now.ToString();

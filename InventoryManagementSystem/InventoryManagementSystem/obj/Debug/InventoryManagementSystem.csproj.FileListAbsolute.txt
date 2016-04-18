@@ -53,6 +53,5 @@ D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\bin\Newtons
 D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\bin\System.Net.Http.Formatting.xml
 D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\bin\System.Web.Http.xml
 D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\bin\System.Web.Http.WebHost.xml
-D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\InventoryManagementSystem.csprojResolveAssemblyReference.cache
 D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\InventoryManagementSystem.dll
 D:\githubProject\InventoryManagementSystem\InventoryManagementSystem\obj\Debug\InventoryManagementSystem.pdb
