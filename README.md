@@ -2,6 +2,7 @@
  - [x] Add Stock APIs
  - [x] Add Commonity APIS
  - [x] Add Start Page API Intro
+ - [x] Add View Page
  
 ###1, Main Technologies used: C#, Sql, HTML, JQuery
 ###2, Main Librrary used: Dapper, Newton.JSON,.net 4.5
